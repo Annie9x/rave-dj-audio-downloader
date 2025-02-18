@@ -16,7 +16,7 @@ jobs:
 
       - name: Download audio from Rave DJ
         run: |
-          yt-dlp -f bestaudio --extract-audio --audio-format mp3 <LINK_RAVE_DJ>
+          yt-dlp -f bestaudio --extract-audio --audio-format mp3 <https://rave.dj/3b4Ms63a-zQLRg>
 
       - name: Upload audio
         uses: actions/upload-artifact@v3
