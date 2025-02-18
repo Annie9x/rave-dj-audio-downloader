@@ -1,0 +1,25 @@
+name: Download Rave DJ Audio
+
+on:
+  workflow_dispatch: # Chạy workflow theo yêu cầu
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Download audio from Rave DJ
+        run: |
+          yt-dlp -f bestaudio --extract-audio --audio-format mp3 <LINK_RAVE_DJ>
+
+      - name: Upload audio
+        uses: actions/upload-artifact@v3
+        with:
+          name: downloaded-audio
+          path: "*.mp3"
